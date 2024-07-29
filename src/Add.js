@@ -44,7 +44,7 @@ function Add() {
     } else if (inputData.desg.length === 0) {
       alert("Please enter designation !!!");
       return false;
-    } else if (inputData.roomno == 0) {
+    } else if (inputData.roomno === 0) {
       alert("Please enter roomno!!!");
       return false;
     } 
