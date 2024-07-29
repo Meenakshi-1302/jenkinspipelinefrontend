@@ -13,7 +13,7 @@ function Edit() {
       .get("http://localhost:8086/User/" + uid)
       .then((response) => setData(response.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [uid]);
 
   let handleSubmit = (e) => {
     e.preventDefault();
