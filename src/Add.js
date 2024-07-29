@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -12,25 +11,25 @@ function Add() {
     
   });
 
-  const naviget = useNavigate();
+  // const naviget = useNavigate();
 
   let handleSubmit = (e) => {
-    e.preventDefault();
-    let result = validateValues(inputData);
+    // e.preventDefault();
+    // let result = validateValues(inputData);
     // setSubmitting(true);
 
-    if (result === true) {
-      axios
-        .post("http://localhost:8086/User", inputData)
-        .then((res) => {
-          alert("Data added Successfully");
-          naviget("/");
-          console.log(res.data);
-        })
-        .catch((err) => console.log(err));
-    } else {
-      alert("Please Enter the Valid Inputs!!!");
-    }
+    // if (result === true) {
+    //   axios
+    //     .post("http://localhost:8086/User", inputData)
+    //     // .then((res) => {
+    //     //   alert("Data added Successfully");
+    //     //   naviget("/");
+    //     //   console.log(res.data);
+    //     // })
+    //     // .catch((err) => console.log(err));
+    // } else {
+    //   alert("Please Enter the Valid Inputs!!!");
+    // }
   };
 
   // validation Part for add user for student management system
@@ -44,7 +43,7 @@ function Add() {
     } else if (inputData.desg.length === 0) {
       alert("Please enter designation !!!");
       return false;
-    } else if (inputData.roomno == 0) {
+    } else if (inputData.roomno === 0) {
       alert("Please enter roomno!!!");
       return false;
     } 
@@ -62,9 +61,10 @@ function Add() {
         <form onSubmit={handleSubmit}>
           <h1>ADD USER DATA</h1>
           <div>
-            <lable htmlFor="name">Name</lable>
+            <lable htmlFor="name" role="namelabel" >Name</lable>
             <input
               type="text"
+              role="namefield"
               name="uname"
               className="form-control"
               onChange={(e) =>

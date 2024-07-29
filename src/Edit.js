@@ -8,12 +8,13 @@ function Edit() {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
+    console.log(`Effect running with uid: ${uid}`);
     console.log(uid);
     axios
       .get("http://localhost:8086/User/" + uid)
       .then((response) => setData(response.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [uid]);
 
   let handleSubmit = (e) => {
     e.preventDefault();
